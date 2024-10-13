@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张三的个人网站</title>
+    <style>
+        /* 重置样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(to bottom, #e6f2ff, #ffffff);
+            min-height: 100vh;
+        }
+        /* 通用样式 */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #2563eb;
+        }
+        /* 头部样式 */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        nav h1 {
+            font-size: 1.5rem;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #4b5563;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            color: #2563eb;
+        }
+        /* 主要内容样式 */
+        main {
+            padding-top: 80px;
+        }
+        section {
+            padding: 4rem 0;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        /* 首页样式 */
+        #home {
+            text-align: center;
+        }
+        #home img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            border: 4px solid #2563eb;
+        }
+        /* 技能样式 */
+        .skill-bar {
+            background-color: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+        .skill-progress {
+            background-color: #2563eb;
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        /* 联系方式样式 */
+        form {
+            display: grid;
+            gap: 1rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        /* 页脚样式 */
+        footer {
+            background-color: #1f2937;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            nav ul li a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+            .menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #4b5563;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <h1>这是 v0.dev 生成的，我一个字都没改</h1>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul id="menu">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#experience">工作经历</a></li>
+                <li><a href="#projects">项目经验</a></li>
+                <li><a href="#skills">技能专长</a></li>
+                <li><a href="#education">教育背景</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="home">
+            <div class="card">
+                <img src="https://via.placeholder.com/200" alt="张三">
+                <h2>张三</h2>
+                <p>专注于前端开发的创新者</p>
+                <p>用代码构建美好的用户体验</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>关于我</h2>
+            <div class="card">
+                <p>我是一名充满激情的前端开发者，热衷于创造直观、高效的用户界面。我相信技术的力量可以改变世界，并致力于通过我的工作为用户带来价值。</p>
+                <p>在工作之余，我喜欢研究新的前端技术，参与开源项目，并通过技术博客分享我的知识和经验。我相信持续学习和成长是保持竞争力的关键。</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>工作经历</h2>
+            <div class="card">
+                <h3>高级前端开发工程师 - ABC科技有限公司</h3>
+                <p>2020年1月 - 至今</p>
+                <ul>
+                    <li>负责公司核心产品的前端架构设计和开发</li>
+                    <li>优化前端性能，提高了页面加载速度30%</li>
+                    <li>指导初级开发人员，提高团队整体技术水平</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>前端开发工程师 - XYZ互联网公司</h3>
+                <p>2017年7月 - 2019年12月</p>
+                <ul>
+                    <li>参与多个大型Web应用的开发和维护</li>
+                    <li>实现了响应式设计，提升了移动端用户体验</li>
+                    <li>协助产品经理优化用户界面和交互设计</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>项目经验</h2>
+            <div class="card">
+                <h3>电商平台前端重构</h3>
+                <p>2021年3月 - 2021年9月</p>
+                <p>使用React和Next.js重构了公司的电商平台，提高了首屏加载速度50%，显著提升了用户体验和转化率。</p>
+            </div>
+            <div class="card">
+                <h3>企业管理系统开发</h3>
+                <p>2019年5月 - 2019年11月</p>
+                <p>设计并开发了一套完整的企业管理系统，包括人事、财务和项目管理模块，大大提高了公司的运营效率。</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>技能专长</h2>
+            <div class="card">
+                <h3>前端技术</h3>
+                <div>
+                    <span>HTML/CSS</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <span>JavaScript</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <span>React</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>其他技能</h3>
+                <div>
+                    <span>Git</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <span>UI/UX设计</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div>
+                    <span>Node.js</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>教育背景</h2>
+            <div class="card">
+                <h3>计算机科学与技术学士学位</h3>
+                <p>某某大学 - 2013年9月 - 2017年6月</p>
+                <ul>
+                    <li>主修课程：数据结构、算法设计、计算机网络、软件工程</li>
+                    <li>获得优秀毕业生称号</li>
+                    <li>参与多个校园技术创新项目</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>联系方式</h2>
+            <div class="card">
+                <form>
+                    <div>
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div>
+                        <label for="email">邮箱</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="message">留言</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">发送消息</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 张三. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 导航菜单切换
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.getElementById('menu');
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+
+        // 滚动监听
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
